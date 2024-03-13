@@ -40,7 +40,6 @@ public class Polynomial {
 
         while(matcher.find()){
             match= matcher.group();
-            System.out.println(match);
             if(!match.isEmpty()){
                 insertMonomial(matcher);
             }
@@ -66,18 +65,21 @@ public class Polynomial {
         }
 
 
-        if(matcher.group(4) == null){
+        if(matcher.group(3) == null){
             power=0;
         }
-        else if(matcher.group(4).equals("^0")){
-            power=0;
+        else{
+            if(matcher.group(4) == null){
+                power=1;
+            }
+            else {
+                String string=matcher.group(4);
+                char value=string.charAt(1);
+                power=Integer.parseInt(String.valueOf(value)) ;
+            }
         }
-        else if (matcher.group(4).equals("^1")){
-            power=1;
-        }
-        else {
-            power=Integer.parseInt(String.valueOf(2)) ;
-        }
+
+
 
         monomials.put(power,coeff);
 
@@ -85,9 +87,13 @@ public class Polynomial {
 
     public void printMonomial(){
         for (Map.Entry<Integer, Integer> entry : monomials.entrySet()) {
-            if(entry!=null) {
+            if(entry!= null && entry.getValue() != 0) {
                 System.out.println(entry.getValue() + "x^" +entry.getKey());
             }
         }
+    }
+
+    public Map<Integer, Integer> getMonomials() {
+        return monomials;
     }
 }
