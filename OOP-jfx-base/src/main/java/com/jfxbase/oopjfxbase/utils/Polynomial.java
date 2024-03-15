@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 
 public class Polynomial {
 
-    Map<Integer,Integer> monomials=new HashMap<>();
+    Map<Integer,Double> monomials=new HashMap<>();
 
 
     public boolean isPolynomial(String inputMonomial){
@@ -48,7 +48,7 @@ public class Polynomial {
     }
 
     private void insertMonomial(Matcher matcher){
-        int coeff;
+        double coeff;
         int power;
 
 
@@ -85,15 +85,31 @@ public class Polynomial {
 
     }
 
-    public void printMonomial(){
-        for (Map.Entry<Integer, Integer> entry : monomials.entrySet()) {
+    public String printMonomial(){
+        String polynom="Result: ";
+        for (Map.Entry<Integer, Double> entry : monomials.entrySet()) {
             if(entry!= null && entry.getValue() != 0) {
-                System.out.println(entry.getValue() + "x^" +entry.getKey());
+                if(entry.getKey() == 0){
+                    polynom=polynom + entry.getValue();
+                    System.out.println(entry.getValue());
+                }
+                else if(entry.getKey() == 1){
+                    polynom=polynom + "+" + entry.getValue() + "x";
+                    System.out.println(entry.getValue() + "x");
+                }
+                else if(entry.getValue() > 1){
+                    polynom=polynom +  "+" + entry.getValue() +"x^" +entry.getKey();
+                    System.out.println(entry.getValue() + "x^" + entry.getKey());
+                }
+                else {
+                    polynom=polynom + entry.getValue() +"x^" +entry.getKey();
+                }
             }
         }
+        return polynom;
     }
 
-    public Map<Integer, Integer> getMonomials() {
+    public Map<Integer, Double> getMonomials() {
         return monomials;
     }
 }
