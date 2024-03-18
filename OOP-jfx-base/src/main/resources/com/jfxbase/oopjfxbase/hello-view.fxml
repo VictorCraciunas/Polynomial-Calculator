@@ -18,7 +18,7 @@
         </children>
     </AnchorPane>
 
-          <GridPane hgap="10" layoutX="32.0" layoutY="187.0" vgap="10">
+          <GridPane hgap="10" layoutX="22.0" layoutY="188.0" vgap="10">
         <Button onAction="#onNumberPressed1" text="1" GridPane.columnIndex="0" GridPane.rowIndex="0" />
         <Button onAction="#onNumberPressed2" text="2" GridPane.columnIndex="1" GridPane.rowIndex="0" />
         <Button onAction="#onNumberPressed3" text="3" GridPane.columnIndex="2" GridPane.rowIndex="0" />
@@ -34,6 +34,7 @@
         <Button onAction="#onPlusPressed" text="+" GridPane.columnIndex="3" GridPane.rowIndex="3" />
         <Button onAction="#onMinusPressed" text="-" GridPane.columnIndex="3" GridPane.rowIndex="2" />
         <Button onAction="#onPowerPressed" text="^" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+      <Button layoutX="112.0" layoutY="46.0" onAction="#deleteCharacter" text="del" GridPane.columnIndex="3" GridPane.rowIndex="0"/>
       <columnConstraints>
          <ColumnConstraints />
          <ColumnConstraints />
@@ -57,7 +58,7 @@
          <Insets bottom="5.0" />
       </opaqueInsets>
    </VBox>
-   <Button layoutX="181.0" layoutY="370.0" mnemonicParsing="false" text="Clear" onAction="#clear" />
+   <Button layoutX="181.0" layoutY="370.0" mnemonicParsing="false" onAction="#clear" text="Clear" />
    <opaqueInsets>
       <Insets />
    </opaqueInsets>

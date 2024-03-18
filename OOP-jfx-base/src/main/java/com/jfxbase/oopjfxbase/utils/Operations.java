@@ -2,6 +2,8 @@ package com.jfxbase.oopjfxbase.utils;
 
 import javafx.fxml.FXML;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 public class Operations {
@@ -22,7 +24,7 @@ public class Operations {
                 result.getMonomials().put(power, coeff);
             }
         }
-
+        result.updatePolynomial();
         return result;
     }
 
@@ -41,8 +43,10 @@ public class Operations {
             else{
                 result.getMonomials().put(power, -coeff);
             }
-        }
 
+            result.updatePolynomial();
+        }
+        result.updatePolynomial();
         return result;
     }
 
@@ -93,5 +97,28 @@ public class Operations {
 
         return result;
     }
+
+    public static List<Polynomial> divide(Polynomial n, Polynomial d){
+        List<Polynomial> result = new ArrayList<>();
+        Polynomial q = new Polynomial();
+        Polynomial r = new Polynomial();
+
+        r.getMonomials().putAll(n.getMonomials());
+        q.getMonomials().put(0, 0.0);
+
+        while (!r.getMonomials().isEmpty() && r.getDegree() >= d.getDegree()) {
+            Polynomial t = new Polynomial();
+            Double coeff = r.getLeadCoeff() / d.getLeadCoeff();
+            Integer power = r.getDegree() - d.getDegree();
+            t.getMonomials().put(power, coeff);
+            q = Operations.addition(q, t);
+            r = Operations.subtraction(r, Operations.multiplication(t, d));
+        }
+
+        result.add(q);
+        result.add(r);
+        return result;
+    }
+
 
 }

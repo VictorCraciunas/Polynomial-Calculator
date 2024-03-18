@@ -1,6 +1,7 @@
 package com.jfxbase.oopjfxbase.utils;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -85,22 +86,24 @@ public class Polynomial {
 
     }
 
-    public String printMonomial(){
-        String polynom="Result: ";
+    @Override
+    public String toString(){
+        String polynom="";
         for (Map.Entry<Integer, Double> entry : monomials.entrySet()) {
             if(entry!= null && entry.getValue() != 0) {
                 if(entry.getKey() == 0){
                     polynom=polynom + entry.getValue();
-                    System.out.println(entry.getValue());
                 }
-                else if(entry.getKey() == 1){
-                    polynom=polynom + "+" + entry.getValue() + "x";
-                    System.out.println(entry.getValue() + "x");
-                }
-                else if(entry.getValue() > 1){
+                else if(entry.getValue() > 0 && entry.getKey() > 1 && entry.getValue() != 1){
                     polynom=polynom +  "+" + entry.getValue() +"x^" +entry.getKey();
-                    System.out.println(entry.getValue() + "x^" + entry.getKey());
                 }
+                else if(entry.getKey() == 1 && entry.getValue() >= 0){
+                    polynom=polynom + "+" + entry.getValue() + "x";
+                }
+                else if(entry.getKey() == 1 && entry.getValue() < 0){
+                    polynom=polynom + "+" + entry.getValue() + "x";
+                }
+
                 else {
                     polynom=polynom + entry.getValue() +"x^" +entry.getKey();
                 }
@@ -112,4 +115,32 @@ public class Polynomial {
     public Map<Integer, Double> getMonomials() {
         return monomials;
     }
+
+    public Integer getDegree(){
+        int max=-1;
+
+        for (Integer i : monomials.keySet()) {
+            if (i > max){
+                max=i;
+            }
+        }
+
+        return  max;
+    }
+
+    public void updatePolynomial() {
+        Iterator<Map.Entry<Integer, Double>> iterator = monomials.entrySet().iterator();
+        while (iterator.hasNext()) {
+            Map.Entry<Integer, Double> entry = iterator.next();
+            if (entry.getValue() == 0) {
+                iterator.remove();
+            }
+        }
+    }
+
+    public double getLeadCoeff(){
+        return getMonomials().get(getDegree());
+    }
+
+
 }

@@ -9,6 +9,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class HelloController extends SceneController {
     @FXML
     private TextField polynom1;
@@ -23,10 +26,6 @@ public class HelloController extends SceneController {
 
 
 
-    @FXML
-    protected void onGoToAnotherSceneClick(){
-        this.changeScene(SCENE_IDENTIFIER.GOOD_BYE);
-    }
 
     @FXML
     public void initialize(){
@@ -53,11 +52,41 @@ public class HelloController extends SceneController {
         }
 
         Polynomial resultAddition=Operations.addition(polynomial1,polynomial2);
-        result.setText(resultAddition.printMonomial());
+        if(resultAddition.getMonomials().isEmpty()){
+            result.setText("0");
+        }
+        else {
+            result.setText(resultAddition.toString());
+        }
     }
 
     @FXML
-    public void onDivision(){
+    public void onDivision(){{
+        String stringPoly1=polynom1.getText();
+        String stringPoly2=polynom2.getText();
+
+        System.out.println(stringPoly1);
+        System.out.println(stringPoly2);
+        Polynomial polynomial1=new Polynomial();
+        Polynomial polynomial2=new Polynomial();
+
+        if(polynomial1.isPolynomial(stringPoly1) && polynomial2.isPolynomial(stringPoly2)){
+            polynomial1.createPolynomial(stringPoly1);
+            polynomial2.createPolynomial(stringPoly2);
+        }
+        else{
+            System.out.println("error");
+        }
+
+
+        List<Polynomial> resultDivision= new ArrayList<>();
+        resultDivision=Operations.divide(polynomial1,polynomial2);
+        String stringResult="Cat: ";
+        for (Polynomial polynomial : resultDivision) {
+            stringResult=stringResult + polynomial +"rest: ";
+        }
+        result.setText(stringResult);
+    }
 
     }
     @FXML
@@ -75,7 +104,7 @@ public class HelloController extends SceneController {
         }
 
         Polynomial resultDerivation=Operations.derivative(polynomial1);
-        result.setText(resultDerivation.printMonomial());
+        result.setText(resultDerivation.toString());
 
 
     }
@@ -94,7 +123,7 @@ public class HelloController extends SceneController {
         }
 
         Polynomial resultIntegration=Operations.integrate(polynomial1);
-        result.setText(resultIntegration.printMonomial());
+        result.setText(resultIntegration.toString());
 
     }
     @FXML
@@ -116,7 +145,7 @@ public class HelloController extends SceneController {
         }
 
         Polynomial resultMultiplication=Operations.multiplication(polynomial1,polynomial2);
-        result.setText(resultMultiplication.printMonomial());
+        result.setText(resultMultiplication.toString());
 
     }
 
@@ -140,7 +169,7 @@ public class HelloController extends SceneController {
         }
 
         Polynomial resultSubstraction=Operations.subtraction(polynomial1,polynomial2);
-        result.setText(resultSubstraction.printMonomial());
+        result.setText(resultSubstraction.toString());
 
     }
 
@@ -347,6 +376,19 @@ public class HelloController extends SceneController {
             String currentText = polynom2.getText();
             String newText = currentText + "^";
             polynom2.setText(newText);
+        }
+    }
+
+    @FXML
+    public void deleteCharacter(){
+        String copy;
+        if(this.changePoylnom == 0){
+            copy=polynom1.getText().substring(0, polynom1.getText().length()-1);
+            this.polynom1.setText(copy);
+        }
+        else {
+            copy=polynom2.getText().substring(0, polynom2.getText().length()-1);
+            this.polynom2.setText(copy);
         }
     }
 
