@@ -1,0 +1,62 @@
+.button0-9 {
+    -fx-background-color: #333; /* Dark background */
+    -fx-text-fill: white; /* White text */
+    -fx-border: none; /* No border */
+    -fx-padding: 20px; /* Padding inside the button */
+    -fx-text-alignment: center; /* Center the text inside the button */
+    -fx-font-size: 16px; /* Text size */
+    -fx-cursor: hand; /* Hand cursor on hover */
+    -fx-background-radius: 20px; /* Rounded corners */
+    -fx-margin: 5px; /* Margin around the button */
+    -fx-pref-width: 60px; /* Default width */
+    -fx-pref-height: 60px; /* Default height */
+}
+
+.button0-9:hover {
+    -fx-background-color: #555; /* Slightly lighter background on hover */
+
+}
+
+.buttonSwitch {
+    -fx-background-color: #ffa500; /* Dark background */
+    -fx-text-fill: white; /* White text */
+    -fx-border: none; /* No border */
+    -fx-padding: 20px; /* Padding inside the button */
+    -fx-text-alignment: center; /* Center the text inside the button */
+    -fx-font-size: 16px; /* Text size */
+    -fx-cursor: hand; /* Hand cursor on hover */
+    -fx-background-radius: 20px; /* Rounded corners */
+    -fx-margin: 5px; /* Margin around the button */
+    -fx-pref-width: 60px; /* Default width */
+    -fx-pref-height: 60px; /* Default height */
+}
+.buttonSwitch:hover {
+     -fx-background-color: #ffbf00; /* Lighter orange background on hover */
+ }
+
+
+
+.buttonMargin {
+    -fx-background-color: #a6a6a6; /* Lighter grey background */
+    -fx-text-fill: white; /* White text */
+    -fx-border: none; /* No border */
+    -fx-padding: 20px; /* Padding inside the button */
+    -fx-text-alignment: center; /* Center the text inside the button */
+    -fx-font-size: 16px; /* Text size */
+    -fx-cursor: hand; /* Hand cursor on hover */
+    -fx-background-radius: 20px; /* Rounded corners */
+    -fx-margin: 5px; /* Margin around the button */
+    -fx-pref-width: 60px; /* Default width */
+    -fx-pref-height: 60px; /* Default height */
+}
+.buttonMargin:hover {
+    -fx-background-color: #bfbfbf; /* Slightly lighter grey background on hover */
+}
+
+.grid-pane{
+    -fx-background-color: #111111;
+    -fx-background-radius: 20px;
+    -fx-pref-width: 350px; /* Default width */
+    -fx-pref-height: 300px; /* Default height */
+}
+

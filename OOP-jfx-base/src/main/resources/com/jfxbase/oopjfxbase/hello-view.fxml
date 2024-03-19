@@ -4,10 +4,10 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jfxbase.oopjfxbase.controllers.HelloController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="510.0" prefWidth="500.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jfxbase.oopjfxbase.controllers.HelloController">
 
 
-    <AnchorPane layoutX="181.0" layoutY="204.0" prefHeight="106.0" prefWidth="240.0">
+    <AnchorPane layoutX="374.0" layoutY="206.0" prefHeight="106.0" prefWidth="240.0">
         <children>
             <Button layoutX="120.0" layoutY="13.0" onAction="#onAddition" prefWidth="120.0" text="Addition" />
             <Button layoutX="120.0" layoutY="52.0" onAction="#onDivision" prefWidth="120.0" text="Division" />
@@ -17,37 +17,6 @@
             <Button layoutY="13.0" onAction="#onSubtraction" prefWidth="120.0" text="Subtraction" />
         </children>
     </AnchorPane>
-
-          <GridPane hgap="10" layoutX="22.0" layoutY="188.0" vgap="10">
-        <Button onAction="#onNumberPressed1" text="1" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-        <Button onAction="#onNumberPressed2" text="2" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-        <Button onAction="#onNumberPressed3" text="3" GridPane.columnIndex="2" GridPane.rowIndex="0" />
-        <Button onAction="#onNumberPressed4" text="4" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-        <Button onAction="#onNumberPressed5" text="5" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-        <Button onAction="#onNumberPressed6" text="6" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-        <Button onAction="#onNumberPressed7" text="7" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-        <Button onAction="#onNumberPressed8" text="8" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-        <Button onAction="#onNumberPressed9" text="9" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-        <Button onAction="#onNumberPressed0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-        <Button onAction="#finishPolynom" text="=" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-        <Button onAction="#onxPressed" text="x" GridPane.columnIndex="0" GridPane.rowIndex="3" />
-        <Button onAction="#onPlusPressed" text="+" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-        <Button onAction="#onMinusPressed" text="-" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-        <Button onAction="#onPowerPressed" text="^" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-      <Button layoutX="112.0" layoutY="46.0" onAction="#deleteCharacter" text="del" GridPane.columnIndex="3" GridPane.rowIndex="0"/>
-      <columnConstraints>
-         <ColumnConstraints />
-         <ColumnConstraints />
-         <ColumnConstraints />
-         <ColumnConstraints />
-      </columnConstraints>
-      <rowConstraints>
-         <RowConstraints />
-         <RowConstraints />
-         <RowConstraints />
-         <RowConstraints />
-      </rowConstraints>
-    </GridPane>
    <VBox prefHeight="106.0" prefWidth="500.0" spacing="15.0">
       <children>
           <TextField fx:id="polynom1" editable="false" prefHeight="1.0" prefWidth="299.0" promptText="Enter first polynomial here" />
@@ -58,7 +27,41 @@
          <Insets bottom="5.0" />
       </opaqueInsets>
    </VBox>
-   <Button layoutX="181.0" layoutY="370.0" mnemonicParsing="false" onAction="#clear" text="Clear" />
+   <Button layoutX="410.0" layoutY="395.0" mnemonicParsing="false" onAction="#clear" text="Clear" />
+   <AnchorPane layoutX="95.0" layoutY="226.0" prefHeight="200.0" prefWidth="200.0" styleClass="grid-pane">
+      <children>
+      
+                <GridPane hgap="10" layoutX="-44.0" layoutY="-67.0"  vgap="10">
+                    <Button onAction="#onNumberPressed1" prefHeight="30.0" prefWidth="30.0" styleClass="button0-9" text="1" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                    <Button onAction="#onNumberPressed2" prefHeight="30.0" prefWidth="30.0" styleClass="button0-9" text="2" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                    <Button onAction="#onNumberPressed3" prefHeight="30.0" prefWidth="30.0" styleClass="button0-9" text="3" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                    <Button onAction="#onNumberPressed4" prefHeight="30.0" prefWidth="30.0" styleClass="button0-9" text="4" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                    <Button onAction="#onNumberPressed5" prefHeight="30.0" prefWidth="30.0" styleClass="button0-9" text="5" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                    <Button onAction="#onNumberPressed6" prefHeight="30.0" prefWidth="30.0" styleClass="button0-9" text="6" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                    <Button onAction="#onNumberPressed7" prefHeight="30.0" prefWidth="30.0" styleClass="button0-9" text="7" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                    <Button onAction="#onNumberPressed8" prefHeight="30.0" prefWidth="30.0" styleClass="button0-9" text="8" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                    <Button onAction="#onNumberPressed9" prefHeight="30.0" prefWidth="30.0" styleClass="button0-9" text="9" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                    <Button onAction="#onNumberPressed0" prefHeight="30.0" prefWidth="30.0" styleClass="button0-9" text="0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                    <Button onAction="#finishPolynom" prefHeight="30.0" prefWidth="30.0" styleClass="buttonSwitch" text="=" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                    <Button onAction="#onMinusPressed" prefHeight="30.0" prefWidth="30.0" styleClass="buttonMargin" text="-" GridPane.rowIndex="3" />
+                    <Button onAction="#onPowerPressed" prefHeight="30.0" prefWidth="30.0" styleClass="buttonMargin" text="^" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <Button layoutX="112.0" layoutY="46.0" onAction="#deleteCharacter" styleClass="buttonMargin" text="del" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+                    <Button onAction="#onxPressed" prefHeight="30.0" prefWidth="30.0" styleClass="buttonMargin" text="x" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                    <Button onAction="#onPlusPressed" prefHeight="30.0" prefWidth="30.0" styleClass="buttonMargin" text="+" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <columnConstraints>
+               <ColumnConstraints />
+               <ColumnConstraints />
+               <ColumnConstraints />
+               <ColumnConstraints />
+            </columnConstraints>
+            <rowConstraints>
+               <RowConstraints />
+               <RowConstraints />
+               <RowConstraints />
+               <RowConstraints />
+            </rowConstraints>
+          </GridPane>
+      </children></AnchorPane>
    <opaqueInsets>
       <Insets />
    </opaqueInsets>
