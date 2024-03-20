@@ -1,8 +1,6 @@
 package com.jfxbase.oopjfxbase.utils;
 
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -87,30 +85,47 @@ public class Polynomial {
     }
 
     @Override
-    public String toString(){
-        String polynom="";
-        for (Map.Entry<Integer, Double> entry : monomials.entrySet()) {
-            if(entry!= null && entry.getValue() != 0) {
-                if(entry.getKey() == 0){
-                    polynom=polynom + entry.getValue();
-                }
-                else if(entry.getValue() > 0 && entry.getKey() > 1 && entry.getValue() != 1){
-                    polynom=polynom +  "+" + entry.getValue() +"x^" +entry.getKey();
-                }
-                else if(entry.getKey() == 1 && entry.getValue() >= 0){
-                    polynom=polynom + "+" + entry.getValue() + "x";
-                }
-                else if(entry.getKey() == 1 && entry.getValue() < 0){
-                    polynom=polynom + "+" + entry.getValue() + "x";
-                }
+    public String toString() {
+        StringBuilder polynom = new StringBuilder();
 
-                else {
-                    polynom=polynom + entry.getValue() +"x^" +entry.getKey();
+        // Create a TreeMap with reverse order
+        TreeMap<Integer, Double> sortedMonomials = new TreeMap<>(Collections.reverseOrder());
+        sortedMonomials.putAll(monomials);
+
+        for (Map.Entry<Integer, Double> entry : sortedMonomials.entrySet()) {
+            if (entry.getValue() == 0) {
+                continue; // Skip zero coefficients
+            }
+
+            // Append '+' for positive coefficients, except for the first term
+            if (entry.getValue() > 0 && !polynom.isEmpty()) {
+                polynom.append("+");
+            }
+
+            // Append the coefficient if it's not 1 or -1, or if the power is 0
+            if (!entry.getValue().equals(1.0) && !entry.getValue().equals(-1.0) || entry.getKey() == 0) {
+                polynom.append(entry.getValue());
+            } else if (entry.getValue().equals(-1.0)) {
+                polynom.append("-");
+            }
+
+            // Append 'x' and power if power is not 0
+            if (entry.getKey() != 0) {
+                polynom.append("x");
+                if (entry.getKey() > 1) {
+                    polynom.append("^").append(entry.getKey());
                 }
             }
         }
-        return polynom;
+
+        // Handle the case where the polynomial is 0
+        if (polynom.isEmpty()) {
+            return "0";
+        }
+
+        return polynom.toString();
     }
+
 
     public Map<Integer, Double> getMonomials() {
         return monomials;

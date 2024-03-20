@@ -1,6 +1,5 @@
 package com.jfxbase.oopjfxbase.utils;
 
-import javafx.fxml.FXML;
 
 import java.util.ArrayList;
 import java.util.List;

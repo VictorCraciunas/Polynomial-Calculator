@@ -1,62 +1,112 @@
 .button0-9 {
-    -fx-background-color: #333; /* Dark background */
-    -fx-text-fill: white; /* White text */
-    -fx-border: none; /* No border */
-    -fx-padding: 20px; /* Padding inside the button */
-    -fx-text-alignment: center; /* Center the text inside the button */
-    -fx-font-size: 16px; /* Text size */
-    -fx-cursor: hand; /* Hand cursor on hover */
-    -fx-background-radius: 20px; /* Rounded corners */
-    -fx-margin: 5px; /* Margin around the button */
-    -fx-pref-width: 60px; /* Default width */
-    -fx-pref-height: 60px; /* Default height */
+    -fx-background-color: #333;
+    -fx-text-fill: white;
+    -fx-border: none;
+    -fx-padding: 20px;
+    -fx-text-alignment: center;
+    -fx-font-size: 16px;
+    -fx-cursor: hand;
+    -fx-background-radius: 20px;
+    -fx-margin: 5px;
+    -fx-pref-width: 60px;
+    -fx-pref-height: 60px;
 }
 
 .button0-9:hover {
-    -fx-background-color: #555; /* Slightly lighter background on hover */
+    -fx-background-color: #555;
 
 }
 
 .buttonSwitch {
-    -fx-background-color: #ffa500; /* Dark background */
-    -fx-text-fill: white; /* White text */
-    -fx-border: none; /* No border */
-    -fx-padding: 20px; /* Padding inside the button */
-    -fx-text-alignment: center; /* Center the text inside the button */
-    -fx-font-size: 16px; /* Text size */
-    -fx-cursor: hand; /* Hand cursor on hover */
-    -fx-background-radius: 20px; /* Rounded corners */
-    -fx-margin: 5px; /* Margin around the button */
-    -fx-pref-width: 60px; /* Default width */
-    -fx-pref-height: 60px; /* Default height */
+    -fx-background-color: #ffa500;
+    -fx-text-fill: white;
+    -fx-border: none;
+    -fx-padding: 20px;
+    -fx-text-alignment: center;
+    -fx-font-size: 16px;
+    -fx-cursor: hand;
+    -fx-background-radius: 20px;
+    -fx-margin: 5px;
+    -fx-pref-width: 60px;
+    -fx-pref-height: 60px;
 }
 .buttonSwitch:hover {
-     -fx-background-color: #ffbf00; /* Lighter orange background on hover */
+     -fx-background-color: #ffbf00;
  }
 
 
 
 .buttonMargin {
-    -fx-background-color: #a6a6a6; /* Lighter grey background */
-    -fx-text-fill: white; /* White text */
-    -fx-border: none; /* No border */
-    -fx-padding: 20px; /* Padding inside the button */
-    -fx-text-alignment: center; /* Center the text inside the button */
-    -fx-font-size: 16px; /* Text size */
-    -fx-cursor: hand; /* Hand cursor on hover */
-    -fx-background-radius: 20px; /* Rounded corners */
-    -fx-margin: 5px; /* Margin around the button */
-    -fx-pref-width: 60px; /* Default width */
-    -fx-pref-height: 60px; /* Default height */
+    -fx-background-color: #a6a6a6;
+    -fx-text-fill: white;
+    -fx-border: none;
+    -fx-padding: 20px;
+    -fx-text-alignment: center;
+    -fx-font-size: 15px;
+    -fx-cursor: hand;
+    -fx-background-radius: 20px;
+    -fx-margin: 5px;
+    -fx-pref-width: 60px;
+    -fx-pref-height: 60px;
 }
 .buttonMargin:hover {
-    -fx-background-color: #bfbfbf; /* Slightly lighter grey background on hover */
+    -fx-background-color: #bfbfbf;
 }
-
-.grid-pane{
+.stack-pane{
     -fx-background-color: #111111;
-    -fx-background-radius: 20px;
-    -fx-pref-width: 350px; /* Default width */
-    -fx-pref-height: 300px; /* Default height */
 }
 
+
+.anchor-pane{
+    -fx-background-color: #494747;
+}
+
+.clear-button{
+    -fx-background-color: #ffa500;
+    -fx-text-fill: white;
+    -fx-border: none;
+    -fx-text-alignment: center;
+    -fx-font-size: 14px;
+    -fx-cursor: hand;
+    -fx-background-radius: 10px;
+    -fx-margin: 5px;
+    -fx-pref-width: 90px;
+    -fx-pref-height: 40px;
+
+}
+.clear-button:hover {
+    -fx-background-color: #ffbf00;
+}
+
+.split-pane .split-pane-divider {
+    -fx-background-color: #666;
+    -fx-padding: 0 0.5px;
+}
+
+.text-field {
+    -fx-font-size: 14px;
+    -fx-text-fill: black;
+    -fx-background-color: #ffffff;
+    -fx-border-color: #cccccc;
+    -fx-border-radius: 5px;
+}
+
+.operation-button {
+    -fx-background-color: #a6a6a6;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-border-radius: 5px;
+    -fx-padding: 5px 14px;
+    -fx-cursor: hand;
+}
+
+.operation-button:hover {
+    -fx-background-color: #bfbfbf;
+}
+
+.vbox-operations{
+    -fx-background-color: #262626;
+}
+.vbox-inputs{
+    -fx-background-color: #333;
+}

@@ -1,7 +1,7 @@
 package com.jfxbase.oopjfxbase.utils.enums;
 
 public enum SCENE_IDENTIFIER {
-    HELLO("hello-view.fxml");
+    HELLO("calculator-view.fxml");
 
     public final String label;
 

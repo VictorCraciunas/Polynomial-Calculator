@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="550.0" prefWidth="500.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jfxbase.oopjfxbase.controllers.CalculatorController">
+   <SplitPane dividerPositions="0.3131392604248623" orientation="VERTICAL" prefHeight="550.0" prefWidth="500.0" styleClass="anchor-pane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+     <items>
+         <VBox alignment="CENTER" prefHeight="128.0" prefWidth="498.0" spacing="15.0" styleClass="vbox-inputs">
+            <children>
+                <TextField fx:id="polynom1" editable="true" maxWidth="350.0" prefHeight="31.0" prefWidth="336.0" promptText="Enter first polynomial here" />
+                <TextField fx:id="polynom2" editable="true" maxWidth="350.0" prefHeight="26.0" prefWidth="356.0" promptText="Enter second polynomial here" />
+               <TextField fx:id="result" editable="false" layoutX="10.0" layoutY="51.0" maxWidth="350.0" prefHeight="26.0" prefWidth="356.0" promptText="Result" />
+            </children>
+            <opaqueInsets>
+               <Insets bottom="5.0" />
+            </opaqueInsets>
+         </VBox>
+         <HBox prefHeight="400.0" prefWidth="498.0">
+            <children>
+               <StackPane prefHeight="371.0" prefWidth="314.0" styleClass="stack-pane">
+                  <children>
+                            <GridPane hgap="10" prefHeight="200.0" prefWidth="314.0" vgap="10">
+                                <Button onAction="#onButtonPressed" prefHeight="30.0" prefWidth="30.0" styleClass="button0-9" text="1" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                           <GridPane.margin>
+                              <Insets left="10.0" top="30.0" />
+                           </GridPane.margin>
+                        </Button>
+                                <Button onAction="#onButtonPressed" prefHeight="30.0" prefWidth="30.0" styleClass="button0-9" text="2" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                           <GridPane.margin>
+                              <Insets top="30.0" />
+                           </GridPane.margin>
+                        </Button>
+                                <Button onAction="#onButtonPressed" prefHeight="30.0" prefWidth="30.0" styleClass="button0-9" text="3" GridPane.columnIndex="2" GridPane.rowIndex="0">
+                           <GridPane.margin>
+                              <Insets top="30.0" />
+                           </GridPane.margin>
+                        </Button>
+                                <Button onAction="#onButtonPressed" prefHeight="30.0" prefWidth="30.0" styleClass="button0-9" text="4" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets left="10.0" />
+                           </GridPane.margin>
+                        </Button>
+                                <Button maxHeight="-Infinity" maxWidth="-Infinity" onAction="#onButtonPressed" prefHeight="30.0" prefWidth="30.0" styleClass="button0-9" text="5" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                <Button onAction="#onButtonPressed" prefHeight="30.0" prefWidth="30.0" styleClass="button0-9" text="6" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                <Button onAction="#onButtonPressed" prefHeight="30.0" prefWidth="30.0" styleClass="button0-9" text="7" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                           <GridPane.margin>
+                              <Insets left="10.0" />
+                           </GridPane.margin>
+                        </Button>
+                                <Button onAction="#onButtonPressed" prefHeight="30.0" prefWidth="30.0" styleClass="button0-9" text="8" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                <Button onAction="#onButtonPressed" prefHeight="30.0" prefWidth="30.0" styleClass="button0-9" text="9" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                <Button onAction="#onButtonPressed" prefHeight="30.0" prefWidth="30.0" styleClass="button0-9" text="0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                <Button onAction="#changePolynom" prefHeight="30.0" prefWidth="30.0" styleClass="buttonSwitch" text="=" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                                <Button onAction="#onButtonPressed" prefHeight="30.0" prefWidth="30.0" styleClass="buttonMargin" text="-" GridPane.rowIndex="3">
+                           <GridPane.margin>
+                              <Insets left="10.0" />
+                           </GridPane.margin>
+                        </Button>
+                                <Button onAction="#onButtonPressed" prefHeight="30.0" prefWidth="30.0" styleClass="buttonMargin" text="^" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                        <Button layoutX="112.0" layoutY="46.0" onAction="#deleteCharacter" styleClass="buttonMargin" text="⌫" GridPane.columnIndex="3" GridPane.rowIndex="0">
+                           <GridPane.margin>
+                              <Insets top="30.0" />
+                           </GridPane.margin>
+                        </Button>
+                                <Button onAction="#onButtonPressed" prefHeight="30.0" prefWidth="30.0" styleClass="buttonMargin" text="x" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                                <Button onAction="#onButtonPressed" prefHeight="30.0" prefWidth="30.0" styleClass="buttonMargin" text="+" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                        <columnConstraints>
+                           <ColumnConstraints />
+                           <ColumnConstraints />
+                           <ColumnConstraints />
+                           <ColumnConstraints />
+                        </columnConstraints>
+                        <rowConstraints>
+                           <RowConstraints />
+                           <RowConstraints />
+                           <RowConstraints />
+                           <RowConstraints />
+                           <RowConstraints />
+                           <RowConstraints />
+                           <RowConstraints />
+                           <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" />
+                           <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" />
+                        </rowConstraints>
+                      </GridPane>
+                  </children></StackPane>
+               <VBox alignment="CENTER" prefHeight="346.0" prefWidth="222.0" spacing="15.0" styleClass="vbox-operations">
+                  <children>
+                        <Button onAction="#onAddition" prefHeight="26.0" prefWidth="188.0" styleClass="operation-button" text="Addition">
+                        <VBox.margin>
+                           <Insets top="30.0" />
+                        </VBox.margin></Button>
+                        <Button onAction="#onSubtraction" prefWidth="188.0" styleClass="operation-button" text="Substraction" />
+                        <Button onAction="#onMultiplication" prefWidth="188.0" styleClass="operation-button" text="Multiplication" />
+                        <Button onAction="#onDivision" prefHeight="26.0" prefWidth="188.0" styleClass="operation-button" text="Division" />
+                        <Button onAction="#onDerivation" prefWidth="188.0" styleClass="operation-button" text="Derivation" />
+                        <Button onAction="#onIntegration" prefWidth="188.0" styleClass="operation-button" text="Integration" />
+                     <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                        <children>
+                           <Button alignment="CENTER" mnemonicParsing="false" onAction="#clear" styleClass="clear-button" text="Clear" />
+                           <Button alignment="CENTER" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#changePolynom" styleClass="clear-button" text="Switch" />
+                        </children>
+                     </HBox>
+                  </children>
+               </VBox>
+            </children></HBox>
+     </items>
+   </SplitPane>
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
+
+
+</AnchorPane>
