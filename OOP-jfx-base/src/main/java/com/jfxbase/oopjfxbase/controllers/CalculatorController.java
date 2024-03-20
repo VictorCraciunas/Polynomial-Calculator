@@ -26,14 +26,29 @@ public class CalculatorController extends SceneController {
     private Polynomial polynomial1=new Polynomial();
     private Polynomial polynomial2=new Polynomial();
 
+    @FXML
+    public void initialize() {
+        // Initial highlight setup
+        if (this.changePoylnom == 0) {
+            polynom1.getStyleClass().add("text-field-highlight");
+        } else {
+            polynom2.getStyleClass().add("text-field-highlight");
+        }
+    }
 
+
+    //Actions for the buttons 0-9, x, +, -, ^
     @FXML
     public void onButtonPressed(ActionEvent event) {
         Button button = (Button) event.getSource();
         String number = button.getText();
+
+        // we add the character to the current polynomial
         updatePolynomialText(number);
     }
 
+
+    //We build the polynomial string
     private void updatePolynomialText(String character) {
         if(this.changePoylnom == 0)
         {
@@ -56,12 +71,8 @@ public class CalculatorController extends SceneController {
         }
 
         Polynomial resultAddition=Operations.addition(polynomial1,polynomial2);
-        if(resultAddition.getMonomials().isEmpty()){
-            result.setText("0");
-        }
-        else {
-            result.setText(resultAddition.toString());
-        }
+        result.setText(resultAddition.toString());
+
     }
 
     @FXML
@@ -135,17 +146,23 @@ public class CalculatorController extends SceneController {
         result.setText(resultSubstraction.toString());
 
     }
+
+    //We switch between the polynomials from the inputs using switch button
     @FXML
     public void changePolynom(){
         if(this.changePoylnom == 0){
             this.changePoylnom=1;
+            polynom1.getStyleClass().remove("text-field-highlight");
+            polynom2.getStyleClass().add("text-field-highlight");
         }
         else {
             this.changePoylnom=0;
+            polynom2.getStyleClass().remove("text-field-highlight");
+            polynom1.getStyleClass().add("text-field-highlight");
         }
     }
 
-
+    //We delete character from the current polynomial
     @FXML
     public void deleteCharacter(){
         String copy;
@@ -163,6 +180,7 @@ public class CalculatorController extends SceneController {
         }
     }
 
+    //We clear the interface using clear button
     @FXML
     public void clear(){
         polynom1.clear();
@@ -173,12 +191,14 @@ public class CalculatorController extends SceneController {
         polynomial2.getMonomials().clear();
     }
 
-
+    //Errors for the incorrect inputs
     public void showError(){
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setContentText("Not polynomial");
         alert.show ();
     }
+
+    //We check if the user inserted a correct polynomial format and if the textfields aren't empty
     private boolean preparePolynomials() {
         String stringPoly1 = polynom1.getText();
         String stringPoly2 = polynom2.getText();

@@ -6,9 +6,11 @@ import java.util.regex.Pattern;
 
 public class Polynomial {
 
-    Map<Integer,Double> monomials=new HashMap<>();
+    //This map is going to be our polynomial
+    Map<Integer,Double> monomials=new HashMap<>(); // key is the power, value is the coefficient
 
 
+    //Check if the input is polynomial
     public boolean isPolynomial(String inputMonomial){
         String regex="^([+-]?\\b([1-9]\\d*)?(x(\\^\\d+)?)?)*$";
 
@@ -29,6 +31,7 @@ public class Polynomial {
 
     public void createPolynomial(String polynomial){
 
+        //regex with the form +-ax^b
         String monomial="([+-])?\\b([1-9]\\d*)?(x(\\^\\d+)?)?";
 
         Pattern pattern=Pattern.compile(monomial);
@@ -37,6 +40,8 @@ public class Polynomial {
         String match;
 
 
+        //We create the polynomial by dividing the string into matches(monomials).
+        // Each match is going to have groups, which are a part of the regex from the monomial
         while(matcher.find()){
             match= matcher.group();
             if(!match.isEmpty()){
@@ -47,6 +52,8 @@ public class Polynomial {
     }
 
     private void insertMonomial(Matcher matcher){
+
+        //We create the coefficient and the power from the groups
         double coeff;
         int power;
 
@@ -79,11 +86,12 @@ public class Polynomial {
         }
 
 
-
+        //We add them to our polynomial
         monomials.put(power,coeff);
 
     }
 
+    //We use this method in order to print the polynomial
     @Override
     public String toString() {
         StringBuilder polynom = new StringBuilder();
@@ -131,6 +139,8 @@ public class Polynomial {
         return monomials;
     }
 
+
+    //the highest power
     public Integer getDegree(){
         int max=-1;
 
@@ -148,14 +158,14 @@ public class Polynomial {
         while (iterator.hasNext()) {
             Map.Entry<Integer, Double> entry = iterator.next();
             if (entry.getValue() == 0) {
-                iterator.remove();
+                iterator.remove(); // we remove the elements with coefficient 0
             }
         }
     }
 
     public double getLeadCoeff(){
         return getMonomials().get(getDegree());
-    }
+    } //the term with the highest power
 
 
 }

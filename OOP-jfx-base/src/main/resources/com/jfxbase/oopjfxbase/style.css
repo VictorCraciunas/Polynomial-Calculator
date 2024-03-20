@@ -110,3 +110,9 @@
 .vbox-inputs{
     -fx-background-color: #333;
 }
+
+.text-field-highlight {
+    -fx-border-color: #ffbf00;
+    -fx-border-width: 2px;
+    -fx-border-radius: 5px;
+}
