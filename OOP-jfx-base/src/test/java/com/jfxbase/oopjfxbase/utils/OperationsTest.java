@@ -7,52 +7,93 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 class OperationsTest {
 
     @ParameterizedTest
     @MethodSource("provideInput")
-    void addition() {
+    void addition(Polynomial p1, Polynomial p2, Polynomial expectedSum) {
+        Polynomial result = Operations.addition(p1, p2);
+        assertEquals(expectedSum.getMonomials().toString(), result.getMonomials().toString());
     }
 
 
     @ParameterizedTest
     @MethodSource("provideInput")
-    void subtraction() {
+    void subtraction(Polynomial p1, Polynomial p2, Polynomial expectedDifference) {
+        Polynomial result = Operations.subtraction(p1, p2);
+        assertEquals(expectedDifference.getMonomials().toString(), result.getMonomials().toString());
     }
 
 
     @ParameterizedTest
     @MethodSource("provideInput")
-    void multiplication() {
+    void multiplication(Polynomial p1, Polynomial p2, Polynomial expectedProduct) {
+        Polynomial result = Operations.multiplication(p1, p2);
+        assertEquals(expectedProduct.getMonomials().toString(), result.getMonomials().toString());
     }
 
 
     @ParameterizedTest
-    @MethodSource("provideInput")
-    void derivative() {
+    @MethodSource("provideInputForDerivative")
+    void derivative(Polynomial p, Polynomial expectedDerivative) {
+        Polynomial result = Operations.derivative(p);
+        assertEquals(expectedDerivative.getMonomials().toString(), result.getMonomials().toString());
     }
 
 
     @ParameterizedTest
-    @MethodSource("provideInput")
-    void integrate() {
+    @MethodSource("provideInputForIntegration")
+    void integrate(Polynomial p, Polynomial expectedIntegral) {
+        Polynomial result = Operations.integrate(p);
+        assertEquals(expectedIntegral.getMonomials().toString(), result.getMonomials().toString());
     }
 
 
     private static List<Arguments> provideInput(){
         List<Arguments> arguments = new ArrayList<>();
-        Polynomial polynomial1=new Polynomial();
-        Polynomial polynomial2=new Polynomial();
-        Polynomial polynomial3=new Polynomial();
+        Polynomial p1 = new Polynomial();
+        Polynomial p2 = new Polynomial();
+        Polynomial p3 = new Polynomial();
+        Polynomial result1=new Polynomial();
+        Polynomial result2=new Polynomial();
+        Polynomial result3=new Polynomial();
+
+        p1.createPolynomial("x^2+1");
+        p2.createPolynomial("-x^2+1");
+        p3.createPolynomial("x^5+x^2-x+3");
 
 
-        polynomial1.createPolynomial("2x^2+2x-5");
-        polynomial1.createPolynomial("-3x^5-2x^2+3");
-        polynomial1.createPolynomial("x^3+2x-1");
-        arguments.add(Arguments.of(2, polynomial1, polynomial2));
-        arguments.add(Arguments.of(4, polynomial2, polynomial3));
-        arguments.add(Arguments.of(12, polynomial3, polynomial1));
+        result1.createPolynomial("2");
+        result2.createPolynomial("x^5-x+4");
+        result3.createPolynomial("x^5+2x^2-x+4");
+        arguments.add(Arguments.of(p1,p2,result1));
+        arguments.add(Arguments.of(p2,p3,result2));
+        arguments.add(Arguments.of(p3,p1,result3));
+        return arguments;
+    }
+
+    private static List<Arguments> provideInputForDerivative(){
+        List<Arguments> arguments = new ArrayList<>();
+        Polynomial p1 = new Polynomial();
+        Polynomial result1=new Polynomial();
+
+        p1.createPolynomial("2x+2");
+        result1.createPolynomial("2");
+        arguments.add(Arguments.of(p1,result1));
+        return arguments;
+    }
+
+    private static List<Arguments> provideInputForIntegration(){
+        List<Arguments> arguments = new ArrayList<>();
+        Polynomial p1 = new Polynomial();
+        Polynomial result1=new Polynomial();
+
+        p1.createPolynomial("2x+2");
+        result1.createPolynomial("x^2+2");
+        arguments.add(Arguments.of(p1,result1));
         return arguments;
     }
 
