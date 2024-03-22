@@ -12,4 +12,6 @@ module com.jfxbase.oopjfxbase {
     opens com.jfxbase.oopjfxbase.utils.enums to javafx.fxml;
     exports com.jfxbase.oopjfxbase.controllers;
     opens com.jfxbase.oopjfxbase.controllers to javafx.fxml;
+    exports com.jfxbase.oopjfxbase.AppLogic;
+    opens com.jfxbase.oopjfxbase.AppLogic to javafx.fxml;
 }

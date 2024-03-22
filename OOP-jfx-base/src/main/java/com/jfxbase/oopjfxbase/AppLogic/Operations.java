@@ -1,4 +1,4 @@
-package com.jfxbase.oopjfxbase.utils;
+package com.jfxbase.oopjfxbase.AppLogic;
 
 
 import java.util.ArrayList;

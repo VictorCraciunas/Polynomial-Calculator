@@ -1,5 +1,7 @@
 package com.jfxbase.oopjfxbase.utils;
 
+import com.jfxbase.oopjfxbase.AppLogic.Operations;
+import com.jfxbase.oopjfxbase.AppLogic.Polynomial;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;

@@ -91,7 +91,7 @@
                         <VBox.margin>
                            <Insets top="30.0" />
                         </VBox.margin></Button>
-                        <Button onAction="#onSubtraction" prefWidth="188.0" styleClass="operation-button" text="Substraction" />
+                        <Button onAction="#onSubtraction" prefWidth="188.0" styleClass="operation-button" text="Subtraction" />
                         <Button onAction="#onMultiplication" prefWidth="188.0" styleClass="operation-button" text="Multiplication" />
                         <Button onAction="#onDivision" prefHeight="26.0" prefWidth="188.0" styleClass="operation-button" text="Division" />
                         <Button onAction="#onDerivation" prefWidth="188.0" styleClass="operation-button" text="Derivation" />

@@ -1,7 +1,7 @@
 package com.jfxbase.oopjfxbase.controllers;
 
-import com.jfxbase.oopjfxbase.utils.Operations;
-import com.jfxbase.oopjfxbase.utils.Polynomial;
+import com.jfxbase.oopjfxbase.AppLogic.Operations;
+import com.jfxbase.oopjfxbase.AppLogic.Polynomial;
 import com.jfxbase.oopjfxbase.utils.SceneController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -77,10 +77,14 @@ public class CalculatorController extends SceneController {
 
     @FXML
     public void onDivision() {
+
+        if(polynom2.getText().equals("0")){
+            showError();
+            return;
+        }
         if (!preparePolynomials()) {
             return;
         }
-
 
         List<Polynomial> resultDivision = Operations.divide(polynomial1, polynomial2);
 
@@ -142,8 +146,8 @@ public class CalculatorController extends SceneController {
         }
 
 
-        Polynomial resultSubstraction=Operations.subtraction(polynomial1,polynomial2);
-        result.setText(resultSubstraction.toString());
+        Polynomial resultSubtraction=Operations.subtraction(polynomial1,polynomial2);
+        result.setText(resultSubtraction.toString());
 
     }
 
@@ -189,12 +193,14 @@ public class CalculatorController extends SceneController {
         changePoylnom=0;
         polynomial1.getMonomials().clear();
         polynomial2.getMonomials().clear();
+        polynom1.getStyleClass().add("text-field-highlight");
+        polynom2.getStyleClass().remove("text-field-highlight");
     }
 
     //Errors for the incorrect inputs
     public void showError(){
         Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setContentText("Not polynomial");
+        alert.setContentText("Error inputs");
         alert.show ();
     }
 

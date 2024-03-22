@@ -1,4 +1,4 @@
-package com.jfxbase.oopjfxbase.utils;
+package com.jfxbase.oopjfxbase.AppLogic;
 
 import java.util.*;
 import java.util.regex.Matcher;
@@ -12,7 +12,7 @@ public class Polynomial {
 
     //Check if the input is polynomial
     public boolean isPolynomial(String inputMonomial){
-        String regex="^([+-]?\\b([1-9]\\d*)?(x(\\^\\d+)?)?)*$";
+        String regex="^([+-]?\\b([0-9]\\d*)?(x(\\^\\d+)?)?)*$";
 
 
         Pattern pattern=Pattern.compile(regex);
@@ -32,7 +32,7 @@ public class Polynomial {
     public void createPolynomial(String polynomial){
 
         //regex with the form +-ax^b
-        String monomial="([+-])?\\b([1-9]\\d*)?(x(\\^\\d+)?)?";
+        String monomial="([+-])?\\b([0-9]\\d*)?(x(\\^\\d+)?)?";
 
         Pattern pattern=Pattern.compile(monomial);
         Matcher matcher=pattern.matcher(polynomial);

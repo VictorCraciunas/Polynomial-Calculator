@@ -1,5 +1,6 @@
 package com.jfxbase.oopjfxbase.utils;
 
+import com.jfxbase.oopjfxbase.AppLogic.Polynomial;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
