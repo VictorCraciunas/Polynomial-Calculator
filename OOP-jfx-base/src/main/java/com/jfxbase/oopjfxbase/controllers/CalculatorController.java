@@ -21,10 +21,10 @@ public class CalculatorController extends SceneController {
     @FXML
     private TextField result;
 
-    private Integer changePoylnom=0;
+    private Integer changePoylnom = 0;
 
-    private Polynomial polynomial1=new Polynomial();
-    private Polynomial polynomial2=new Polynomial();
+    private Polynomial polynomial1 = new Polynomial();
+    private Polynomial polynomial2 = new Polynomial();
 
     @FXML
     public void initialize() {
@@ -50,13 +50,11 @@ public class CalculatorController extends SceneController {
 
     //We build the polynomial string
     private void updatePolynomialText(String character) {
-        if(this.changePoylnom == 0)
-        {
+        if (this.changePoylnom == 0) {
             String currentText = polynom1.getText();
             String newText = currentText + character;
             polynom1.setText(newText);
-        }
-        else {
+        } else {
             String currentText = polynom2.getText();
             String newText = currentText + character;
             polynom2.setText(newText);
@@ -65,12 +63,12 @@ public class CalculatorController extends SceneController {
 
 
     @FXML
-    public void onAddition(){
+    public void onAddition() {
         if (!preparePolynomials()) {
             return;
         }
 
-        Polynomial resultAddition=Operations.addition(polynomial1,polynomial2);
+        Polynomial resultAddition = Operations.addition(polynomial1, polynomial2);
         result.setText(resultAddition.toString());
 
     }
@@ -78,7 +76,7 @@ public class CalculatorController extends SceneController {
     @FXML
     public void onDivision() {
 
-        if(polynom2.getText().equals("0")){
+        if (polynom2.getText().equals("0")) {
             showError();
             return;
         }
@@ -96,71 +94,70 @@ public class CalculatorController extends SceneController {
     }
 
     @FXML
-    public void onDerivation(){
-        String stringPoly1=polynom1.getText();
+    public void onDerivation() {
+        String stringPoly1 = polynom1.getText();
 
 
-        if(polynomial1.isPolynomial(stringPoly1)){
+        if (polynomial1.isPolynomial(stringPoly1)) {
             polynomial1.createPolynomial(stringPoly1);
-        }
-        else{
+        } else {
             showError();
         }
 
-        Polynomial resultDerivation=Operations.derivative(polynomial1);
+        Polynomial resultDerivation = Operations.derivative(polynomial1);
         result.setText(resultDerivation.toString());
 
 
     }
-    @FXML
-    public void onIntegration(){
-        String stringPoly1=polynom1.getText();
 
-        if(polynomial1.isPolynomial(stringPoly1)){
+    @FXML
+    public void onIntegration() {
+        String stringPoly1 = polynom1.getText();
+
+        if (polynomial1.isPolynomial(stringPoly1)) {
             polynomial1.createPolynomial(stringPoly1);
-        }
-        else{
+        } else {
             showError();
         }
 
-        Polynomial resultIntegration=Operations.integrate(polynomial1);
+        Polynomial resultIntegration = Operations.integrate(polynomial1);
         result.setText(resultIntegration.toString());
 
     }
+
     @FXML
-    public void onMultiplication(){
+    public void onMultiplication() {
         if (!preparePolynomials()) {
             return;
         }
 
 
-        Polynomial resultMultiplication=Operations.multiplication(polynomial1,polynomial2);
+        Polynomial resultMultiplication = Operations.multiplication(polynomial1, polynomial2);
         result.setText(resultMultiplication.toString());
 
     }
 
     @FXML
-    public void onSubtraction(){
+    public void onSubtraction() {
         if (!preparePolynomials()) {
             return;
         }
 
 
-        Polynomial resultSubtraction=Operations.subtraction(polynomial1,polynomial2);
+        Polynomial resultSubtraction = Operations.subtraction(polynomial1, polynomial2);
         result.setText(resultSubtraction.toString());
 
     }
 
     //We switch between the polynomials from the inputs using switch button
     @FXML
-    public void changePolynom(){
-        if(this.changePoylnom == 0){
-            this.changePoylnom=1;
+    public void changePolynom() {
+        if (this.changePoylnom == 0) {
+            this.changePoylnom = 1;
             polynom1.getStyleClass().remove("text-field-highlight");
             polynom2.getStyleClass().add("text-field-highlight");
-        }
-        else {
-            this.changePoylnom=0;
+        } else {
+            this.changePoylnom = 0;
             polynom2.getStyleClass().remove("text-field-highlight");
             polynom1.getStyleClass().add("text-field-highlight");
         }
@@ -168,17 +165,16 @@ public class CalculatorController extends SceneController {
 
     //We delete character from the current polynomial
     @FXML
-    public void deleteCharacter(){
+    public void deleteCharacter() {
         String copy;
-        if(this.changePoylnom == 0){
+        if (this.changePoylnom == 0) {
             if (!polynom1.getText().isEmpty()) {
-                copy=polynom1.getText().substring(0, polynom1.getText().length()-1);
+                copy = polynom1.getText().substring(0, polynom1.getText().length() - 1);
                 this.polynom1.setText(copy);
             }
-        }
-        else {
+        } else {
             if (!polynom2.getText().isEmpty()) {
-                copy=polynom2.getText().substring(0, polynom2.getText().length()-1);
+                copy = polynom2.getText().substring(0, polynom2.getText().length() - 1);
                 this.polynom2.setText(copy);
             }
         }
@@ -186,11 +182,11 @@ public class CalculatorController extends SceneController {
 
     //We clear the interface using clear button
     @FXML
-    public void clear(){
+    public void clear() {
         polynom1.clear();
         polynom2.clear();
         result.clear();
-        changePoylnom=0;
+        changePoylnom = 0;
         polynomial1.getMonomials().clear();
         polynomial2.getMonomials().clear();
         polynom1.getStyleClass().add("text-field-highlight");
@@ -198,10 +194,10 @@ public class CalculatorController extends SceneController {
     }
 
     //Errors for the incorrect inputs
-    public void showError(){
+    public void showError() {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setContentText("Error inputs");
-        alert.show ();
+        alert.show();
     }
 
     //We check if the user inserted a correct polynomial format and if the textfields aren't empty
@@ -219,11 +215,10 @@ public class CalculatorController extends SceneController {
         }
     }
 
-    public boolean isEmptyPolynomials(){
-        if(polynom1.getText().isEmpty() || polynom2.getText().isEmpty()){
+    public boolean isEmptyPolynomials() {
+        if (polynom1.getText().isEmpty() || polynom2.getText().isEmpty()) {
             return true;
-        }
-        else{
+        } else {
             return false;
         }
     }

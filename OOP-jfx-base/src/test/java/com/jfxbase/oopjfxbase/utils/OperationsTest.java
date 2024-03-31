@@ -54,14 +54,14 @@ class OperationsTest {
     }
 
 
-    private static List<Arguments> provideInput(){
+    private static List<Arguments> provideInput() {
         List<Arguments> arguments = new ArrayList<>();
         Polynomial p1 = new Polynomial();
         Polynomial p2 = new Polynomial();
         Polynomial p3 = new Polynomial();
-        Polynomial result1=new Polynomial();
-        Polynomial result2=new Polynomial();
-        Polynomial result3=new Polynomial();
+        Polynomial result1 = new Polynomial();
+        Polynomial result2 = new Polynomial();
+        Polynomial result3 = new Polynomial();
 
         p1.createPolynomial("x^2+1");
         p2.createPolynomial("-x^2+1");
@@ -71,31 +71,31 @@ class OperationsTest {
         result1.createPolynomial("2");
         result2.createPolynomial("x^5-x+4");
         result3.createPolynomial("x^5+2x^2-x+4");
-        arguments.add(Arguments.of(p1,p2,result1));
-        arguments.add(Arguments.of(p2,p3,result2));
-        arguments.add(Arguments.of(p3,p1,result3));
+        arguments.add(Arguments.of(p1, p2, result1));
+        arguments.add(Arguments.of(p2, p3, result2));
+        arguments.add(Arguments.of(p3, p1, result3));
         return arguments;
     }
 
-    private static List<Arguments> provideInputForDerivative(){
+    private static List<Arguments> provideInputForDerivative() {
         List<Arguments> arguments = new ArrayList<>();
         Polynomial p1 = new Polynomial();
-        Polynomial result1=new Polynomial();
+        Polynomial result1 = new Polynomial();
 
         p1.createPolynomial("2x+2");
         result1.createPolynomial("2");
-        arguments.add(Arguments.of(p1,result1));
+        arguments.add(Arguments.of(p1, result1));
         return arguments;
     }
 
-    private static List<Arguments> provideInputForIntegration(){
+    private static List<Arguments> provideInputForIntegration() {
         List<Arguments> arguments = new ArrayList<>();
         Polynomial p1 = new Polynomial();
-        Polynomial result1=new Polynomial();
+        Polynomial result1 = new Polynomial();
 
         p1.createPolynomial("2x+2");
         result1.createPolynomial("x^2+2");
-        arguments.add(Arguments.of(p1,result1));
+        arguments.add(Arguments.of(p1, result1));
         return arguments;
     }
 

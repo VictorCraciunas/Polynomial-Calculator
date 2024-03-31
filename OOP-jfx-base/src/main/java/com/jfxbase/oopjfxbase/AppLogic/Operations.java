@@ -7,24 +7,22 @@ import java.util.Map;
 
 public class Operations {
 
-    public static Polynomial addition(Polynomial polynomial1, Polynomial polynomial2){
+    public static Polynomial addition(Polynomial polynomial1, Polynomial polynomial2) {
 
         //We initialize result with the first polynomial
         Polynomial result = new Polynomial();
         result.getMonomials().putAll(polynomial1.getMonomials());
 
 
-
         for (Map.Entry<Integer, Double> entry : polynomial2.getMonomials().entrySet()) {
-            Integer power= entry.getKey();
-            Double coeff=entry.getValue();
+            Integer power = entry.getKey();
+            Double coeff = entry.getValue();
 
             //If in result there exists a key with power from polynomial2 => coeff1 + coeff2
             //else we put the coeff from polynomial2
-            if(result.getMonomials().containsKey(power)){
+            if (result.getMonomials().containsKey(power)) {
                 result.getMonomials().put(power, coeff + result.getMonomials().get(power));
-            }
-            else{
+            } else {
                 result.getMonomials().put(power, coeff);
             }
         }
@@ -32,7 +30,7 @@ public class Operations {
         return result;
     }
 
-    public static Polynomial subtraction(Polynomial polynomial1, Polynomial polynomial2){
+    public static Polynomial subtraction(Polynomial polynomial1, Polynomial polynomial2) {
         //We initialize result with the first polynomial
         Polynomial result = new Polynomial();
         result.getMonomials().putAll(polynomial1.getMonomials());
@@ -41,13 +39,12 @@ public class Operations {
         //If in result there exists a key with power from polynomial2 => coeff1 - coeff2
         //else we put the -coeff from polynomial2
         for (Map.Entry<Integer, Double> entry : polynomial2.getMonomials().entrySet()) {
-            Integer power= entry.getKey();
-            Double coeff=entry.getValue();
+            Integer power = entry.getKey();
+            Double coeff = entry.getValue();
 
-            if(result.getMonomials().containsKey(power)){
-                result.getMonomials().put(power, result.getMonomials().get(power) - coeff );
-            }
-            else{
+            if (result.getMonomials().containsKey(power)) {
+                result.getMonomials().put(power, result.getMonomials().get(power) - coeff);
+            } else {
                 result.getMonomials().put(power, -coeff);
             }
 
@@ -57,18 +54,17 @@ public class Operations {
         return result;
     }
 
-    public static Polynomial multiplication(Polynomial polynomial1, Polynomial polynomial2){
-        Polynomial result=new Polynomial();
+    public static Polynomial multiplication(Polynomial polynomial1, Polynomial polynomial2) {
+        Polynomial result = new Polynomial();
 
         //same logic as the normal multiplication
-        for(Map.Entry<Integer,Double> entry1 : polynomial1.getMonomials().entrySet()){
+        for (Map.Entry<Integer, Double> entry1 : polynomial1.getMonomials().entrySet()) {
             for (Map.Entry<Integer, Double> entry2 : polynomial2.getMonomials().entrySet()) {
-                Integer power=entry1.getKey()+entry2.getKey();
-                Double coeff=entry1.getValue()*entry2.getValue();
-                if(result.getMonomials().containsKey(power)){
+                Integer power = entry1.getKey() + entry2.getKey();
+                Double coeff = entry1.getValue() * entry2.getValue();
+                if (result.getMonomials().containsKey(power)) {
                     result.getMonomials().put(power, coeff + result.getMonomials().get(power));
-                }
-                else {
+                } else {
                     result.getMonomials().put(power, coeff);
                 }
 
@@ -77,41 +73,41 @@ public class Operations {
         return result;
     }
 
-    public static Polynomial derivative(Polynomial polynomial){
-        Polynomial result=new Polynomial();
+    public static Polynomial derivative(Polynomial polynomial) {
+        Polynomial result = new Polynomial();
 
 
         //coeff= currentcoeff * power
         // power = power-1
-        for(Map.Entry<Integer,Double> entry: polynomial.getMonomials().entrySet()){
-            Integer power=entry.getKey()-1;
-            Double coeff=entry.getValue()* entry.getKey();
+        for (Map.Entry<Integer, Double> entry : polynomial.getMonomials().entrySet()) {
+            Integer power = entry.getKey() - 1;
+            Double coeff = entry.getValue() * entry.getKey();
 
-            if(power >= 0){
-                result.getMonomials().put(power,coeff);
+            if (power >= 0) {
+                result.getMonomials().put(power, coeff);
             }
         }
 
         return result;
     }
 
-    public static Polynomial integrate(Polynomial polynomial){
-        Polynomial result=new Polynomial();
+    public static Polynomial integrate(Polynomial polynomial) {
+        Polynomial result = new Polynomial();
 
 
         // coeff=currentcoeff / power+1
         // power=  power+1
-        for(Map.Entry<Integer,Double> entry: polynomial.getMonomials().entrySet()){
-            Integer power=entry.getKey()+1;
-            Double coeff=entry.getValue()/ (entry.getKey()+1);
+        for (Map.Entry<Integer, Double> entry : polynomial.getMonomials().entrySet()) {
+            Integer power = entry.getKey() + 1;
+            Double coeff = entry.getValue() / (entry.getKey() + 1);
 
-            result.getMonomials().put(power,coeff);
+            result.getMonomials().put(power, coeff);
         }
 
         return result;
     }
 
-    public static List<Polynomial> divide(Polynomial n, Polynomial d){
+    public static List<Polynomial> divide(Polynomial n, Polynomial d) {
         List<Polynomial> result = new ArrayList<>();
         Polynomial q = new Polynomial();
         Polynomial r = new Polynomial();

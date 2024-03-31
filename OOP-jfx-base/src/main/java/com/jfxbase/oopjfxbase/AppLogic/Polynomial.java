@@ -7,87 +7,82 @@ import java.util.regex.Pattern;
 public class Polynomial {
 
     //This map is going to be our polynomial
-    Map<Integer,Double> monomials=new HashMap<>(); // key is the power, value is the coefficient
+    Map<Integer, Double> monomials = new HashMap<>(); // key is the power, value is the coefficient
 
 
     //Check if the input is polynomial
-    public boolean isPolynomial(String inputMonomial){
-        String regex="^([+-]?\\b([0-9]\\d*)?(x(\\^\\d+)?)?)*$";
+    public boolean isPolynomial(String inputMonomial) {
+        String regex = "^([+-]?\\b([0-9]\\d*)?(x(\\^\\d+)?)?)*$";
 
 
-        Pattern pattern=Pattern.compile(regex);
-        Matcher matcher=pattern.matcher(inputMonomial);
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(inputMonomial);
 
 
-        if(matcher.find()){
+        if (matcher.find()) {
             return true;
-        }
-
-        else {
+        } else {
             return false;
         }
 
     }
 
-    public void createPolynomial(String polynomial){
+    public void createPolynomial(String polynomial) {
 
         //regex with the form +-ax^b
-        String monomial="([+-])?\\b([0-9]\\d*)?(x(\\^\\d+)?)?";
+        String monomial = "([+-])?\\b([0-9]\\d*)?(x(\\^\\d+)?)?";
 
-        Pattern pattern=Pattern.compile(monomial);
-        Matcher matcher=pattern.matcher(polynomial);
+        Pattern pattern = Pattern.compile(monomial);
+        Matcher matcher = pattern.matcher(polynomial);
 
         String match;
 
 
         //We create the polynomial by dividing the string into matches(monomials).
         // Each match is going to have groups, which are a part of the regex from the monomial
-        while(matcher.find()){
-            match= matcher.group();
-            if(!match.isEmpty()){
+        while (matcher.find()) {
+            match = matcher.group();
+            if (!match.isEmpty()) {
                 insertMonomial(matcher);
             }
         }
 
     }
 
-    private void insertMonomial(Matcher matcher){
+    private void insertMonomial(Matcher matcher) {
 
         //We create the coefficient and the power from the groups
         double coeff;
         int power;
 
 
-        if (matcher.group(2) == null){
-            coeff=1;
-        }
-        else {
-            coeff=Integer.parseInt(matcher.group(2));
-        }
-
-
-        if(matcher.group(1)!= null && matcher.group(1).equals("-")){
-            coeff=-coeff;
+        if (matcher.group(2) == null) {
+            coeff = 1;
+        } else {
+            coeff = Integer.parseInt(matcher.group(2));
         }
 
 
-        if(matcher.group(3) == null){
-            power=0;
+        if (matcher.group(1) != null && matcher.group(1).equals("-")) {
+            coeff = -coeff;
         }
-        else{
-            if(matcher.group(4) == null){
-                power=1;
-            }
-            else {
-                String string=matcher.group(4);
-                char value=string.charAt(1);
-                power=Integer.parseInt(String.valueOf(value)) ;
+
+
+        if (matcher.group(3) == null) {
+            power = 0;
+        } else {
+            if (matcher.group(4) == null) {
+                power = 1;
+            } else {
+                String string = matcher.group(4);
+                char value = string.charAt(1);
+                power = Integer.parseInt(String.valueOf(value));
             }
         }
 
 
         //We add them to our polynomial
-        monomials.put(power,coeff);
+        monomials.put(power, coeff);
 
     }
 
@@ -141,16 +136,16 @@ public class Polynomial {
 
 
     //the highest power
-    public Integer getDegree(){
-        int max=-1;
+    public Integer getDegree() {
+        int max = -1;
 
         for (Integer i : monomials.keySet()) {
-            if (i > max){
-                max=i;
+            if (i > max) {
+                max = i;
             }
         }
 
-        return  max;
+        return max;
     }
 
     public void updatePolynomial() {
@@ -163,7 +158,7 @@ public class Polynomial {
         }
     }
 
-    public double getLeadCoeff(){
+    public double getLeadCoeff() {
         return getMonomials().get(getDegree());
     } //the term with the highest power
 
