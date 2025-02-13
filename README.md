@@ -4,7 +4,7 @@
 The **Polynomial Calculator** is a JavaFX application designed to perform various **polynomial operations** such as **addition, subtraction, multiplication, division, differentiation, and integration**. The calculator provides a **graphical user interface (GUI)** where users can input polynomials and select operations to perform on them. 
 
 ## Application Screenshot
-Below is an image of the Polynomial Calculator in action:
+Below is an image of the Polynomial Calculator:
 
 ![Polynomial Calculator](images/calculator.png)
 
