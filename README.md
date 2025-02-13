@@ -6,7 +6,7 @@ The **Polynomial Calculator** is a JavaFX application designed to perform variou
 ## Application Screenshot
 Below is an image of the Polynomial Calculator in action:
 
-![Polynomial Calculator](calculator.png)
+![Polynomial Calculator](images/calculator.png)
 
 ## Features
 - **GUI-based Polynomial Calculator** using JavaFX
@@ -49,7 +49,6 @@ PolynomialCalculator/
 ### 1. Clone the Repository
 ```
 git clone https://github.com/VictorCraciunas/Polynomial-Calculator.git
-cd PolynomialCalculator
 ```
 
 ### 2. Run the Application
